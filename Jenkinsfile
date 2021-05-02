@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('package') {
       steps {
-        sh 'mvn clean'
-        sh 'mvn package'
+        sh 'echo "`pwd`"'
       }
     }
 
