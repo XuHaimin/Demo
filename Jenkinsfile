@@ -1,10 +1,11 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('package') {
       steps {
-        sh '''sh "mvn clean"
-sh "mvn package"'''
+        sh '''mvn clean
+'''
+        sh 'mvn package'
       }
     }
 
