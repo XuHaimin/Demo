@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  tools{
-    maven 'maven3.8.1'
-  }
   stages {
     stage('package') {
       steps {
@@ -11,5 +8,14 @@ pipeline {
       }
     }
 
+    stage('deploy') {
+      steps {
+        sh 'mv target/demo-0.0.1-SNAPSHOT.jar /usr/local/src/'
+      }
+    }
+
+  }
+  tools {
+    maven 'maven3.8.1'
   }
 }
