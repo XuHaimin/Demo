@@ -12,7 +12,8 @@ pipeline {
       steps {
         sh 'mv target/demo-0.0.1-SNAPSHOT.jar /usr/local/src/'
         sh 'cd /usr/local/src/'
-        sh 'sh /usr/local/src/deploy.sh'
+        sh '''export BUILD_ID=dontKillMe
+nohup java -jar demo-0.0.1-SNAPSHOT.jar >demo.log 2>&1 &'''
       }
     }
 
