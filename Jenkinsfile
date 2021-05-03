@@ -12,7 +12,7 @@ pipeline {
       steps {
         sh 'mv target/demo-0.0.1-SNAPSHOT.jar /usr/local/src/'
         sh 'cd /usr/local/src/'
-        sh 'BUILD_ID=dontKillMe nohup java -jar demo-0.0.1-SNAPSHOT.jar >demo.log 2>&1 &'
+        sh 'sh deploy.sh'
       }
     }
 
