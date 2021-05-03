@@ -11,6 +11,8 @@ pipeline {
     stage('deploy') {
       steps {
         sh 'mv target/demo-0.0.1-SNAPSHOT.jar /usr/local/src/'
+        sh 'cd /usr/local/src/'
+        sh 'nohup java -jar demo-0.0.1-SNAPSHOT.jar >demo.log 2>&1 &'
       }
     }
 
