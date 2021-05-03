@@ -12,7 +12,8 @@ pipeline {
       steps {
         sh 'mv target/demo-0.0.1-SNAPSHOT.jar /usr/local/src/'
         sh 'cd /usr/local/src/'
-        sh 'setsid sleep 30; java -jar /usr/local/src/demo-0.0.1-SNAPSHOT.jar >/usr/local/src/demo.log 2>&1 &'
+        sh '''export JENKINS_NODE_COOKIE=dontkillme
+nohup sleep 30; java -jar /usr/local/src/demo-0.0.1-SNAPSHOT.jar >/usr/local/src/demo.log 2>&1 &'''
       }
     }
 
