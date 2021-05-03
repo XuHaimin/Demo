@@ -12,7 +12,7 @@ pipeline {
       steps {
         sh 'mv target/demo-0.0.1-SNAPSHOT.jar /usr/local/src/'
         sh 'cd /usr/local/src/'
-        sh 'sh deploy.sh'
+        sh 'sh /usr/local/src/deploy.sh'
       }
     }
 
