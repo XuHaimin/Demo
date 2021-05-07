@@ -20,4 +20,18 @@ pipeline {
   tools {
     maven 'maven3.8.1'
   }
+  post {
+    failure {
+        echo '部署失败'
+    }
+    success {
+        echo '部署成功'
+    }
+    unstable {
+        echo '测试未通过'
+    }
+    always {
+        echo '部署完成'
+    }
+  }
 }
