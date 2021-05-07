@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('package') {
       steps {
-        tool name: 'maven3.8.1', type: 'maven'
         sh 'mvn clean package'
       }
     }
@@ -18,5 +17,9 @@ pipeline {
         }
       }
     }
+
+  }
+  tools {
+    maven 'maven3.8.1'
   }
 }
