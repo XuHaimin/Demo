@@ -13,7 +13,7 @@ pipeline {
        // withEnv(['JENKINS_NODE_COOKIE=dontkillme']){
        //         sh '''nohup java -jar /usr/local/src/demo.jar >/usr/local/src/demo.log 2>&1 &'''
        // }
-       sh 'docker build -t test:v1'
+       sh 'docker build -t test:v1 .'
       }
     }
 
