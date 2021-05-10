@@ -23,7 +23,7 @@ pipeline {
                      fi
                      '''
         sh '''
-                         STRING=`docker images | grep test | awk '{print $1}'`
+                         STRING=`docker images | grep test | awk '{print $3}'`
                          if [ -n "$STRING" ]; then
                             echo '删除镜像$STRING'
                             docker rmi $STRING
