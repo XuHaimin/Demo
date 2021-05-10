@@ -16,17 +16,17 @@ pipeline {
        sh '''
                      STRING=`docker ps -a | grep test | awk '{print $1}'`
                      if [ -n "$STRING" ]; then
-                         echo '删除镜像$STRING'
-                         docker rm -f $STRING
+                          echo '停止容器$STRING'
+                          docker stop $STRING
+                          echo '删除容器$STRING'
+                          docker rm $STRING
                      fi
                      '''
         sh '''
                          STRING=`docker images | grep test | awk '{print $1}'`
                          if [ -n "$STRING" ]; then
-                            echo '停止容器$STRING'
-                            docker stop $STRING
-                            echo '删除容器$STRING'
-                            docker rm $STRING
+                            echo '删除镜像$STRING'
+                            docker rmi $STRING
                          fi
                       '''
        echo '构建镜像'
